@@ -351,8 +351,7 @@ function App() {
     const errs = validate();
     setErrors(errs);
     if (Object.keys(errs).length === 0) {
-      // Здесь отправка данных
-      alert(lang === 'ru' ? 'Данные отправлены!' : 'Form submitted!');
+      setShowModal(true);
       setForm({ name: '', email: '', phone: '', projectType: '', details: '' });
     }
   };
@@ -386,6 +385,18 @@ function App() {
   const [connectRef] = useRevealOnScroll(0, lang);
   const [testimonialsRef] = useRevealOnScroll(0, lang);
   const [contactRef] = useRevealOnScroll(0, lang);
+
+  // Для закрытия модалки по клику вне окна
+  const modalBgRef = useRef();
+  const [showModal, setShowModal] = useState(false);
+  useEffect(() => {
+    if (!showModal) return;
+    const handler = (e) => {
+      if (modalBgRef.current && e.target === modalBgRef.current) setShowModal(false);
+    };
+    window.addEventListener('mousedown', handler);
+    return () => window.removeEventListener('mousedown', handler);
+  }, [showModal]);
 
   return (
     <div className="min-h-screen text-white font-sans relative">
@@ -719,6 +730,22 @@ function App() {
           </div>
         </div>
       </section>
+      {showModal && (
+        <div ref={modalBgRef} className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm">
+          <div className="bg-[#181E36] rounded-2xl shadow-2xl p-8 max-w-xs w-full flex flex-col items-center animate-fade-in border border-[#23263A] relative">
+            <span className="text-4xl mb-4 drop-shadow-[0_0_12px_#FF7E3F]">🛠️</span>
+            <div className="text-lg font-bold mb-6 text-center text-[#FFB088] drop-shadow-[0_0_8px_#FF7E3F]">
+              {lang === 'ru' ? 'Данные отправлены!' : 'Form submitted!'}
+            </div>
+            <button
+              onClick={() => setShowModal(false)}
+              className="bg-[#FF7E3F] hover:bg-[#ff965f] text-white font-semibold px-8 py-2 rounded-lg text-base shadow transition duration-200 hover:drop-shadow-[0_0_10px_#FF7E3F] hover:-translate-y-1 transition-transform"
+            >
+              {lang === 'ru' ? 'Закрыть' : 'Close'}
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
