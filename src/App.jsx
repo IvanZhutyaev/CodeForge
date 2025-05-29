@@ -3,6 +3,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import emailjs from 'emailjs-com'
 
 const translations = {
   ru: {
@@ -351,8 +352,27 @@ function App() {
     const errs = validate();
     setErrors(errs);
     if (Object.keys(errs).length === 0) {
-      setShowModal(true);
-      setForm({ name: '', email: '', phone: '', projectType: '', details: '' });
+      // Отправка данных через EmailJS
+      emailjs.send(
+        'service_5uwa8t9', // <-- вставьте сюда ваш Service ID
+        'template_gw2ufba', // <-- вставьте сюда ваш Template ID
+        {
+          name: form.name,
+          email: form.email,
+          phone: form.phone,
+          projectType: form.projectType,
+          details: form.details,
+        },
+        '2bGOnXA-Mq0mPIuSy' // <-- вставьте сюда ваш Public Key (User ID)
+      )
+      .then(() => {
+        setShowModal(true);
+        setForm({ name: '', email: '', phone: '', projectType: '', details: '' });
+      })
+      .catch(() => {
+        alert(lang === 'ru' ? 'Ошибка отправки. Попробуйте позже.' : 'Sending failed. Try again later.');
+      });
+      return;
     }
   };
 
