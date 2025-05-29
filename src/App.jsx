@@ -55,24 +55,40 @@ const translations = {
     portfolio: 'Портфолио',
     portfolioList: [
       {
-        title: 'AI-ассистент для e-commerce',
-        desc: 'Чат-бот для интернет-магазина с рекомендациями и отслеживанием заказов.',
-        tags: ['Python', 'TensorFlow', 'React', 'Node.js'],
+        title: 'Фабрика реальности',
+        desc: 'Сюрреалистическая игра-головоломка в жанре хоррор, в которой реальность трещит по швам.',
+        tags: ['Unity', 'C#', 'C++', 'HLSL', 'ShaderLab', 'Mathematica', 'Objective-C', 'Другое'],
+        github: 'https://github.com/TeamScriptSquad/The-Fabric-of-Reality'
       },
       {
-        title: 'Финтех-дэшборд',
-        desc: 'Платформа аналитики с визуализацией финансовых данных.',
-        tags: ['React', 'D3.js', 'Express', 'PostgreSQL'],
+        title: 'Фитнес-трекер',
+        desc: 'Бот, который поможет вам следить за своим фитнесом и питанием.',
+        tags: ['Python', 'Google Services', 'Telegram Bot API', 'Другое'],
+        github: 'https://github.com/TeamScriptSquad/Fitness-Tracker'
       },
       {
-        title: 'Фитнес-приложение',
-        desc: 'Мобильное приложение для отслеживания тренировок и питания.',
-        tags: ['Flutter', 'Dart', 'Firebase', 'MLKit'],
+        title: 'Сека - карточная игра',
+        desc: 'Telegram Mini-App для игры в карты.',
+        tags: ['HTML', 'Python', 'JS', 'TS', 'Telegram Bot API', 'Telegram Mini-App', 'CSS', 'Shell', 'PostgreSQL', 'Другое'],
+        github: 'https://github.com/IvanZhutyaev/Seka-Card_Game'
       },
       {
-        title: 'Автоматизация логистики',
-        desc: 'Система управления запасами и оптимизации цепочек поставок.',
-        tags: ['Python', 'Django', 'Redis', 'Docker'],
+        title: 'DGTL-Telegram Mini-App',
+        desc: 'Веб-ориентированная игра clicker на платформе Telegram',
+        tags: ['Python', 'TS', 'JS', 'CSS', 'PostgreSQL', 'Telegram Bot API', 'Telegram Mini-App', 'Другое'],
+        github: 'https://github.com/IvanZhutyaev/dgtl-miniapp'
+      },
+      {
+        title: 'Масслукинг',
+        desc: 'Этот скрипт позволяет вам автоматически просматривать истории пользователей в группах и каналах Telegram, к которым у вас есть доступ.',
+        tags: ['Python', 'Telegram Bot API', 'Другое'],
+        github: 'https://github.com/IvanZhutyaev/Masslooking'
+      },
+      {
+        title: 'Meet - система для бронирования мероприятий',
+        desc: 'Система, позволяющая бронировать и просматривать мероприятия, а также создавать их.',
+        tags: ['Python', 'Django', 'JS', 'TS', 'PostgreSQL', 'Другое'],
+        github: 'https://github.com/IvanZhutyaev/meet'
       },
     ],
     team: 'Наша команда',
@@ -119,6 +135,7 @@ const translations = {
       linkedin: 'LinkedIn',
       twitter: 'Twitter',
     },
+    githubButton: 'Смотреть на GitHub',
   },
   en: {
     nav: [
@@ -170,24 +187,40 @@ const translations = {
     portfolio: 'Our Portfolio',
     portfolioList: [
       {
-        title: 'E-Commerce AI Assistant',
-        desc: 'Intelligent chatbot for online retail with product recommendations and order tracking capabilities.',
-        tags: ['Python', 'TensorFlow', 'React', 'Node.js'],
+        title: 'The Fabric of Reality',
+        desc: 'A surreal horror-puzzle game where reality unravels at the seams.',
+        tags: ['Unity', 'C#', 'C++', 'HLSL', 'ShaderLab', 'Mathematica', 'Objective-C', 'Other'],
+        github: 'https://github.com/TeamScriptSquad/The-Fabric-of-Reality'
       },
       {
-        title: 'FinTech Dashboard',
-        desc: 'Real-time financial analytics platform with advanced data visualization and reporting features.',
-        tags: ['React', 'D3.js', 'Express', 'PostgreSQL'],
+        title: 'Fitness-Tracker',
+        desc: 'A bot that will help you monitor your fitness and nutrition.',
+        tags: ['Python', 'Google Services', 'Telegram Bot API', 'Other'],
+        github: 'https://github.com/TeamScriptSquad/Fitness-Tracker'
       },
       {
-        title: 'Fitness Tracking App',
-        desc: 'Cross-platform mobile application for workout tracking, nutrition monitoring, and progress analytics.',
-        tags: ['Flutter', 'Dart', 'Firebase', 'MLKit'],
+        title: 'Seka - Card Game',
+        desc: 'Seka (or "seka game") is the colloquial name of the popular card game "Nine" (also known as "Stuka", "Pig" or "21 points").',
+        tags: ['HTML', 'Python', 'JS', 'TS', 'Telegram Bot API', 'Telegram Mini-App', 'CSS', 'Shell', 'PostgreSQL', 'Other'],
+        github: 'https://github.com/IvanZhutyaev/Seka-Card_Game'
       },
       {
-        title: 'Supply Chain Automation',
-        desc: 'Automated inventory management system with predictive analytics and real-time supply chain optimization.',
-        tags: ['Python', 'Django', 'Redis', 'Docker'],
+        title: 'DGTL-Telegram Mini-App',
+        desc: 'A web-based clicker game on the Telegram platform',
+        tags: ['Python', 'TS', 'JS', 'CSS', 'PostgreSQL', 'Telegram Bot API', 'Telegram Mini-App', 'Other'],
+        github: 'https://github.com/IvanZhutyaev/dgtl-miniapp'
+      },
+      {
+        title: 'Masslooking',
+        desc: 'This script allows you to automatically view stories of users in Telegram groups and channels where you have access.',
+        tags: ['Python', 'Telegram Bot API', 'Other'],
+        github: 'https://github.com/IvanZhutyaev/Masslooking'
+      },
+      {
+        title: 'Meet - a system for booking events',
+        desc: 'A system that allows you to book and view events, as well as create them.',
+        tags: ['Python', 'Django', 'JS', 'TS', 'PostgreSQL', 'Other'],
+        github: 'https://github.com/IvanZhutyaev/meet'
       },
     ],
     team: 'Our Team',
@@ -234,6 +267,7 @@ const translations = {
       linkedin: 'LinkedIn',
       twitter: 'Twitter',
     },
+    githubButton: 'View on GitHub',
   }
 };
 
@@ -342,12 +376,12 @@ function App() {
           <div className="flex items-center gap-2">
             <button
               onClick={() => setLang(lang === 'ru' ? 'en' : 'ru')}
-              className="w-10 h-10 border border-[#23263A] rounded-lg flex items-center justify-center font-bold text-[#FF7E3F] bg-transparent hover:bg-[#181E36] transition-all duration-300 hover:drop-shadow-[0_0_12px_#FF7E3F] hover:translate-y-[-4px] transition-transform"
+              className="w-10 h-10 border border-[#23263A] rounded-lg flex items-center justify-center font-bold text-[#FF7E3F] bg-transparent hover:bg-[#181E36] transition-all duration-300 hover:drop-shadow-[0_0_12px_#FF7E3F] hover:-translate-y-1 transition-transform"
               aria-label="Switch language"
             >
               {lang === 'ru' ? 'EN' : 'RU'}
             </button>
-            <a href="https://github.com/IvanZhutyaev" target="_blank" rel="noopener noreferrer" className="w-10 h-10 border border-[#23263A] rounded-lg flex items-center justify-center transition-all duration-300 hover:drop-shadow-[0_0_12px_#FF7E3F] hover:translate-y-[-4px] transition-transform">
+            <a href="https://github.com/IvanZhutyaev" target="_blank" rel="noopener noreferrer" className="w-10 h-10 border border-[#23263A] rounded-lg flex items-center justify-center transition-all duration-300 hover:drop-shadow-[0_0_12px_#FF7E3F] hover:-translate-y-1 transition-transform">
               <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24" className="text-[#FF7E3F] drop-shadow-[0_0_8px_#FF7E3F]">
                 <path d="M12 2C6.477 2 2 6.484 2 12.021c0 4.428 2.865 8.184 6.839 9.504.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.004.07 1.532 1.032 1.532 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.339-2.221-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.987 1.029-2.686-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.025A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.295 2.748-1.025 2.748-1.025.546 1.378.202 2.397.1 2.65.64.699 1.028 1.593 1.028 2.686 0 3.847-2.337 4.695-4.566 4.944.359.309.678.919.678 1.852 0 1.336-.012 2.417-.012 2.747 0 .267.18.577.688.48C19.138 20.2 22 16.447 22 12.021 22 6.484 17.523 2 12 2z"/>
               </svg>
@@ -366,14 +400,14 @@ function App() {
             <a 
               href="#portfolio" 
               onClick={(e) => scrollToAnchor(e, 'portfolio')}
-              className="bg-[#FF7E3F] hover:bg-[#ff965f] text-white font-semibold px-8 py-3 rounded-lg text-lg shadow transition-all duration-300 drop-shadow-[0_0_8px_#FF7E3F] hover:translate-y-[-4px] transition-transform"
+              className="bg-[#FF7E3F] hover:bg-[#ff965f] text-white font-semibold px-8 py-3 rounded-lg text-lg shadow transition-all duration-300 drop-shadow-[0_0_8px_#FF7E3F] hover:-translate-y-1 transition-transform"
             >
               {translations[lang].viewPortfolio}
             </a>
             <a 
               href="#contact" 
               onClick={(e) => scrollToAnchor(e, 'contact')}
-              className="border border-[#FF7E3F] text-[#FF7E3F] hover:bg-[#FF7E3F] hover:text-white font-semibold px-8 py-3 rounded-lg text-lg transition-all duration-300 drop-shadow-[0_0_8px_#FF7E3F] hover:translate-y-[-4px] transition-transform"
+              className="border border-[#FF7E3F] text-[#FF7E3F] hover:bg-[#FF7E3F] hover:text-white font-semibold px-8 py-3 rounded-lg text-lg transition-all duration-300 drop-shadow-[0_0_8px_#FF7E3F] hover:-translate-y-1 transition-transform"
             >
               {translations[lang].contactUs}
             </a>
@@ -390,7 +424,7 @@ function App() {
           {translations[lang].servicesList.map((service, idx) => {
             const [cardRef, cardProps] = useRevealOnScroll(idx * 100, lang);
             return (
-              <div ref={cardRef} {...cardProps} key={idx} className="fade-up-stagger bg-[#181E36] rounded-xl p-7 shadow flex flex-col items-start hover:drop-shadow-[0_0_12px_#FF7E3F] hover:translate-y-[-4px] transition-transform">
+              <div ref={cardRef} {...cardProps} key={idx} className="fade-up-stagger bg-[#181E36] rounded-xl p-7 shadow flex flex-col items-start hover:drop-shadow-[0_0_12px_#FF7E3F] hover:-translate-y-1 transition-transform duration-300 cursor-pointer">
                 <span className="text-3xl mb-4">{service.icon}</span>
                 <h3 className="text-xl font-bold mb-2">{service.title}</h3>
                 <p className="text-gray-300">{service.desc}</p>
@@ -409,7 +443,7 @@ function App() {
           {translations[lang].portfolioList.map((item, idx) => {
             const [cardRef, cardProps] = useRevealOnScroll(idx * 100, lang);
             return (
-              <div ref={cardRef} {...cardProps} key={idx} className="fade-up-stagger bg-[#181E36] rounded-xl p-7 shadow flex flex-col items-start transition-all duration-300 hover:drop-shadow-[0_0_12px_#FF7E3F] hover:translate-y-[-4px] transition-transform">
+              <div ref={cardRef} {...cardProps} key={idx} className="fade-up-stagger bg-[#181E36] rounded-xl p-7 shadow flex flex-col items-start hover:drop-shadow-[0_0_12px_#FF7E3F] hover:-translate-y-1 transition-transform duration-300 cursor-pointer">
                 <h3 className="text-xl font-bold mb-2">{item.title}</h3>
                 <p className="text-gray-300 mb-4">{item.desc}</p>
                 <div className="flex flex-wrap gap-2 mb-4">
@@ -417,8 +451,8 @@ function App() {
                     <span key={tag} className="bg-[#23263A] text-[#FFB088] px-3 py-1 rounded text-xs font-semibold">{tag}</span>
                   ))}
                 </div>
-                <a href="#" className="flex items-center gap-2 text-[#FF7E3F] font-semibold hover:underline mt-auto transition hover:drop-shadow-[0_0_10px_#FF7E3F]">
-                  <span className="text-lg">&#x1F5C3;</span> View on GitHub
+                <a href={item.github} className="flex items-center gap-2 text-[#FF7E3F] font-semibold hover:underline mt-auto transition hover:drop-shadow-[0_0_10px_#FF7E3F] hover:-translate-y-1 transition-transform">
+                  <span className="text-lg">&#x1F5C3;</span> {translations[lang].githubButton}
                 </a>
               </div>
             );
@@ -435,7 +469,7 @@ function App() {
           {translations[lang].teamStats.map((stat, idx) => {
             const [statRef, statProps] = useRevealOnScroll(idx * 100, lang);
             return (
-              <div ref={statRef} {...statProps} key={idx} className="fade-up-stagger bg-[#181E36] rounded-xl py-10 flex flex-col items-center shadow transition-all duration-300 hover:drop-shadow-[0_0_12px_#FF7E3F] hover:translate-y-[-4px] transition-transform">
+              <div ref={statRef} {...statProps} key={idx} className="fade-up-stagger bg-[#181E36] rounded-xl py-10 flex flex-col items-center shadow hover:drop-shadow-[0_0_12px_#FF7E3F] hover:-translate-y-1 transition-transform duration-300 cursor-pointer">
                 <span className="text-3xl md:text-4xl font-extrabold text-[#FF7E3F] mb-2">{stat.value}</span>
                 <span className="text-gray-300 text-center">{stat.label}</span>
               </div>
@@ -444,10 +478,26 @@ function App() {
         </div>
         <h3 className="text-2xl font-bold text-center mb-6 text-gray-200">{translations[lang].coreTech}</h3>
         <div className="flex flex-wrap justify-center gap-4">
-          {['Python','JavaScript','React','Node.js','Flutter','Django','PostgreSQL','MongoDB','AWS','Docker','TensorFlow','GraphQL'].map((tech, index) => {
-            const [techRef, techProps] = useRevealOnScroll(700 + index * 100, lang);
+          {[
+            'C', 'C#', 'C++', 'CSS3', 'GO', 'HTML5', 'JAVA', 'JAVASCRIPT', 'MARKDOWN',
+            'PHP', 'POWERSHELL', 'PYTHON', 'BASH SCRIPT', 'TYPESCRIPT', 'WINDOWS TERMINAL',
+            'NETLIFY', 'HEROKU', 'GOOGLECLOUD', 'FIREBASE', 'DIGITALOCEAN', 'ORACLE', 'OPENSTACK',
+            '.NET', 'ANACONDA', 'ANGULAR', 'ANGULAR.JS', 'BOOTSTRAP', 'DJANGO', 'djANGO', 'REST',
+            'FLUTTER', 'FLASK', 'FASTAPI', 'EXPRESS.JS', 'JQUERY', 'JOOMLA', 'METEORJS',
+            'NODE-RED', 'NODEMON', 'NODE.JS', 'NEXT', 'NESTJS', 'NUXT', 'NX', 'REACT',
+            'REACT NATIVE', 'REACT QUERY', 'REACT ROUTER', 'REACT HOOK FORM', 'REDUX', 'STRAPI',
+            'VUE.JS', 'WORDPRESS', 'XAMARIN', 'AMAZON DYNAMODB', 'FIREBASE', 'MICROSOFT SQL SERVER',
+            'MONGODB', 'MYSQL', 'SQLITE', 'POSTGRES', 'ADOBE', 'ADOBE PHOTOSHOP', 'ASEPRITE',
+            'FIGMA', 'BLENDER', 'SKETCH', 'SKETCHUP', 'STORYBOOK', 'MLFLOW', 'PYTORCH',
+            'GITLAB CI', 'GITHUB ACTIONS', 'BITBUCKET', 'GIT', 'GITEA', 'GITEE', 'GITHUB',
+            'GITLAB', 'GITPOD', 'ARDUINO', 'DOCKER', 'HOME ASSISTANT', 'HOMEBRIDGE',
+            'OPENAPIINITIATIVE', 'NOTION', 'PACKER', 'PLATFORMIO', 'PORTFOLIO', 'POSTMAN',
+            'POWER BI', 'UBER', 'GODOT', 'EPICGAMES', 'EA', 'NVIDIA', 'OPENGL', 'PSN', 'XBOX',
+            'UNREALENGINE', 'UNITY', 'STEAM'
+          ].map((tech, index) => {
+            const [techRef, techProps] = useRevealOnScroll(700 + index * 10, lang);
             return (
-              <span ref={techRef} {...techProps} key={index} className="fade-up-stagger bg-[#181E36] text-[#FF7E3F] px-6 py-2 rounded font-semibold text-base shadow border border-[#23263A] transition-all duration-300 hover:drop-shadow-[0_0_10px_#FF7E3F] hover:translate-y-[-4px] transition-transform">
+              <span ref={techRef} {...techProps} key={index} className="fade-up-stagger bg-[#181E36] text-[#FF7E3F] px-6 py-2 rounded font-semibold text-base shadow border border-[#23263A] hover:drop-shadow-[0_0_10px_#FF7E3F] hover:-translate-y-1 transition-transform duration-300 cursor-pointer">
                 {tech}
               </span>
             );
@@ -484,15 +534,39 @@ function App() {
         </div>
         <p className="text-gray-300 text-lg mb-10">{translations[lang].connectText}</p>
         <div className="flex flex-col md:flex-row gap-8 justify-center mb-10">
-          {[{icon: '🛫', title: translations[lang].telegram, desc: translations[lang].telegramDesc, handle: '@CodeForgeStars'}, {icon: '🗣️', title: translations[lang].vk, desc: translations[lang].vkDesc, handle: 'vk.com/codeforge'}].map((block, idx) => {
+          {[
+            {
+              icon: '🛫',
+              title: translations[lang].telegram,
+              desc: translations[lang].telegramDesc,
+              handle: '@CodeForgeStars',
+              link: 'https://t.me/ScriptSquadMain'
+            },
+            {
+              icon: '🗣️',
+              title: translations[lang].vk,
+              desc: translations[lang].vkDesc,
+              handle: 'vk.com/codeforge',
+              link: 'https://vk.com/CodeForge'
+            }
+          ].map((block, idx) => {
             const [blockRef, blockProps] = useRevealOnScroll(300 + idx * 100, lang);
             return (
-              <div ref={blockRef} {...blockProps} key={idx} className="fade-up-stagger bg-[#181E36] rounded-xl p-8 flex-1 flex flex-col items-center shadow transition-all duration-300 hover:drop-shadow-[0_0_12px_#FF7E3F] hover:translate-y-[-4px] transition-transform">
+              <a
+                href={block.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                ref={blockRef}
+                {...blockProps}
+                key={idx}
+                className="fade-up-stagger bg-[#181E36] rounded-xl p-8 flex-1 flex flex-col items-center shadow hover:drop-shadow-[0_0_12px_#FF7E3F] hover:-translate-y-1 transition-transform duration-300 no-underline"
+                style={{ textDecoration: 'none' }}
+              >
                 <span className="text-5xl mb-4">{block.icon}</span>
                 <h3 className="text-xl font-bold mb-2">{block.title}</h3>
                 <p className="text-gray-300 mb-2">{block.desc}</p>
                 <span className="text-[#FF7E3F] font-mono font-semibold">{block.handle}</span>
-              </div>
+              </a>
             );
           })}
         </div>
@@ -506,7 +580,7 @@ function App() {
                 key={idx} 
                 href="#contact" 
                 onClick={(e) => scrollToAnchor(e, 'contact')}
-                className="fade-up-stagger bg-[#FF7E3F] hover:bg-[#ff965f] text-white font-semibold px-8 py-3 rounded-lg text-lg shadow transition-all duration-300 mb-4 md:mb-0 hover:drop-shadow-[0_0_10px_#FF7E3F] hover:translate-y-[-4px] transition-transform"
+                className="fade-up-stagger bg-[#FF7E3F] hover:bg-[#ff965f] text-white font-semibold px-8 py-3 rounded-lg text-lg shadow mb-4 md:mb-0 hover:drop-shadow-[0_0_10px_#FF7E3F] hover:-translate-y-1 transition-transform duration-300"
               >
                 {btn}
               </a>
@@ -534,12 +608,12 @@ function App() {
         </div>
         <div className="flex flex-col md:flex-row gap-12">
           {/* Форма */}
-          <form className="bg-[#181E36] rounded-xl p-8 flex-1 shadow flex flex-col gap-6 transition-all duration-300 hover:drop-shadow-[0_0_12px_#FF7E3F] hover:translate-y-[-4px] transition-transform">
+          <form className="bg-[#181E36] rounded-xl p-8 flex-1 shadow flex flex-col gap-6 transition-all duration-300 hover:drop-shadow-[0_0_12px_#FF7E3F] hover:-translate-y-1 transition-transform">
             <input type="text" placeholder={translations[lang].contactForm.name} className="bg-transparent border border-[#23263A] rounded px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-[#FF7E3F]" />
             <input type="email" placeholder={translations[lang].contactForm.email} className="bg-transparent border border-[#23263A] rounded px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-[#FF7E3F]" />
             <input type="text" placeholder={translations[lang].contactForm.projectType} className="bg-transparent border border-[#23263A] rounded px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-[#FF7E3F]" />
             <textarea placeholder={translations[lang].contactForm.details} rows={4} className="bg-transparent border border-[#23263A] rounded px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-[#FF7E3F] resize-none" />
-            <button type="submit" className="bg-[#FF7E3F] hover:bg-[#ff965f] text-white font-semibold px-8 py-3 rounded-lg text-lg shadow transition-all duration-300 mt-2 transition hover:drop-shadow-[0_0_10px_#FF7E3F] hover:translate-y-[-4px] transition-transform">{translations[lang].contactForm.send}</button>
+            <button type="submit" className="bg-[#FF7E3F] hover:bg-[#ff965f] text-white font-semibold px-8 py-3 rounded-lg text-lg shadow mt-2 hover:drop-shadow-[0_0_10px_#FF7E3F] hover:-translate-y-1 transition-transform duration-300">{translations[lang].contactForm.send}</button>
           </form>
           {/* Контакты */}
           <div className="flex-1 flex flex-col gap-6 justify-center items-center md:items-start">
@@ -558,9 +632,9 @@ function App() {
               </div>
             </div>
             <div className="flex gap-6 mt-2">
-              <a href="#" className="text-[#FF7E3F] text-2xl hover:scale-110 transition hover:drop-shadow-[0_0_10px_#FF7E3F]"><span className="sr-only">{translations[lang].social.github}</span> <svg width="28" height="28" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.021c0 4.428 2.865 8.184 6.839 9.504.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.004.07 1.532 1.032 1.532 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.339-2.221-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.987 1.029-2.686-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.025A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.295 2.748-1.025 2.748-1.025.546 1.378.202 2.397.1 2.65.64.699 1.028 1.593 1.028 2.686 0 3.847-2.337 4.695-4.566 4.944.359.309.678.919.678 1.852 0 1.336-.012 2.417-.012 2.747 0 .267.18.577.688.48C19.138 20.2 22 16.447 22 12.021 22 6.484 17.523 2 12 2z"/></svg></a>
-              <a href="#" className="text-[#FF7E3F] text-2xl hover:scale-110 transition hover:drop-shadow-[0_0_10px_#FF7E3F]"><span className="sr-only">{translations[lang].social.linkedin}</span> <svg width="28" height="28" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.28c-.966 0-1.75-.79-1.75-1.76s.784-1.76 1.75-1.76 1.75.79 1.75 1.76-.784 1.76-1.75 1.76zm13.5 11.28h-3v-5.6c0-1.34-.03-3.07-1.87-3.07-1.87 0-2.16 1.46-2.16 2.97v5.7h-3v-10h2.89v1.36h.04c.4-.75 1.38-1.54 2.84-1.54 3.04 0 3.6 2 3.6 4.59v5.59z"/></svg></a>
-              <a href="#" className="text-[#FF7E3F] text-2xl hover:scale-110 transition hover:drop-shadow-[0_0_10px_#FF7E3F]"><span className="sr-only">{translations[lang].social.twitter}</span> <svg width="28" height="28" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557a9.93 9.93 0 0 1-2.828.775 4.932 4.932 0 0 0 2.165-2.724c-.951.564-2.005.974-3.127 1.195a4.92 4.92 0 0 0-8.39 4.482C7.691 8.095 4.066 6.13 1.64 3.161c-.542.929-.856 2.01-.857 3.17 0 2.188 1.115 4.117 2.823 5.247a4.904 4.904 0 0 1-2.229-.616c-.054 2.281 1.581 4.415 3.949 4.89a4.936 4.936 0 0 1-2.224.084c.627 1.956 2.444 3.377 4.6 3.417A9.867 9.867 0 0 1 0 21.543a13.94 13.94 0 0 0 7.548 2.209c9.057 0 14.009-7.496 14.009-13.986 0-.213-.005-.425-.014-.636A9.936 9.936 0 0 0 24 4.557z"/></svg></a>
+              <a href="#" className="text-[#FF7E3F] text-2xl hover:scale-110 hover:drop-shadow-[0_0_10px_#FF7E3F] hover:-translate-y-1 transition-transform"><span className="sr-only">{translations[lang].social.github}</span> <svg width="28" height="28" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.021c0 4.428 2.865 8.184 6.839 9.504.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.004.07 1.532 1.032 1.532 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.339-2.221-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.987 1.029-2.686-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.025A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.295 2.748-1.025 2.748-1.025.546 1.378.202 2.397.1 2.65.64.699 1.028 1.593 1.028 2.686 0 3.847-2.337 4.695-4.566 4.944.359.309.678.919.678 1.852 0 1.336-.012 2.417-.012 2.747 0 .267.18.577.688.48C19.138 20.2 22 16.447 22 12.021 22 6.484 17.523 2 12 2z"/></svg></a>
+              <a href="#" className="text-[#FF7E3F] text-2xl hover:scale-110 hover:drop-shadow-[0_0_10px_#FF7E3F] hover:-translate-y-1 transition-transform"><span className="sr-only">{translations[lang].social.linkedin}</span> <svg width="28" height="28" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.28c-.966 0-1.75-.79-1.75-1.76s.784-1.76 1.75-1.76 1.75.79 1.75 1.76-.784 1.76-1.75 1.76zm13.5 11.28h-3v-5.6c0-1.34-.03-3.07-1.87-3.07-1.87 0-2.16 1.46-2.16 2.97v5.7h-3v-10h2.89v1.36h.04c.4-.75 1.38-1.54 2.84-1.54 3.04 0 3.6 2 3.6 4.59v5.59z"/></svg></a>
+              <a href="#" className="text-[#FF7E3F] text-2xl hover:scale-110 hover:drop-shadow-[0_0_10px_#FF7E3F] hover:-translate-y-1 transition-transform"><span className="sr-only">{translations[lang].social.twitter}</span> <svg width="28" height="28" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557a9.93 9.93 0 0 1-2.828.775 4.932 4.932 0 0 0 2.165-2.724c-.951.564-2.005.974-3.127 1.195a4.92 4.92 0 0 0-8.39 4.482C7.691 8.095 4.066 6.13 1.64 3.161c-.542.929-.856 2.01-.857 3.17 0 2.188 1.115 4.117 2.823 5.247a4.904 4.904 0 0 1-2.229-.616c-.054 2.281 1.581 4.415 3.949 4.89a4.936 4.936 0 0 1-2.224.084c.627 1.956 2.444 3.377 4.6 3.417A9.867 9.867 0 0 1 0 21.543a13.94 13.94 0 0 0 7.548 2.209c9.057 0 14.009-7.496 14.009-13.986 0-.213-.005-.425-.014-.636A9.936 9.936 0 0 0 24 4.557z"/></svg></a>
             </div>
           </div>
         </div>
