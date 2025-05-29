@@ -104,3 +104,24 @@ body {
   0% { opacity: 0.2; }
   100% { opacity: 0.4; }
 }
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.4s cubic-bezier(.4,0,.2,1), transform 0.4s cubic-bezier(.4,0,.2,1);
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: none;
+}
+
+.fade-up-stagger {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.4s cubic-bezier(.4,0,.2,1), transform 0.4s cubic-bezier(.4,0,.2,1);
+  transition-delay: var(--stagger-delay, 0ms);
+}
+.fade-up-stagger.visible {
+  opacity: 1;
+  transform: none;
+}
