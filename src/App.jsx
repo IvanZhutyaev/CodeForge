@@ -238,32 +238,41 @@ const translations = {
 };
 
 // Кастомный хук для появления при скролле
-function useRevealOnScroll(stagger = 0) {
+function useRevealOnScroll(stagger = 0, lang) {
   const ref = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  // Сбрасываем состояние при смене языка
+  useEffect(() => {
+    setIsVisible(false);
+  }, [lang]);
+
   useEffect(() => {
     const node = ref.current;
     if (!node) return;
-    let timeoutId;
+
     const handle = (entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          node.classList.add('visible');
+          setIsVisible(true);
         }
       });
     };
+
     const observer = new window.IntersectionObserver(handle, { threshold: 0.15 });
     observer.observe(node);
-    // Fallback: если observer не сработал, показать через timeout
-    timeoutId = setTimeout(() => {
-      if (node && !node.classList.contains('visible')) {
-        node.classList.add('visible');
-      }
-    }, 700);
+
     return () => {
       observer.disconnect();
-      clearTimeout(timeoutId);
     };
   }, []);
+
+  useEffect(() => {
+    if (ref.current) {
+      ref.current.classList.toggle('visible', isVisible);
+    }
+  }, [isVisible]);
+  
   if (stagger) {
     return [ref, { style: { '--stagger-delay': `${stagger}ms` } }];
   }
@@ -275,14 +284,19 @@ function App() {
   const [lang, setLang] = useState('ru')
   const t = translations[lang]
 
-  const [heroRef] = useRevealOnScroll();
-  const [servicesRef] = useRevealOnScroll();
-  const [portfolioRef] = useRevealOnScroll();
-  const [teamRef] = useRevealOnScroll();
-  const [aboutRef] = useRevealOnScroll();
-  const [connectRef] = useRevealOnScroll();
-  const [testimonialsRef] = useRevealOnScroll();
-  const [contactRef] = useRevealOnScroll();
+  // Эффект для прокрутки вверх при загрузке и смене языка
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [lang]);
+
+  const [heroRef] = useRevealOnScroll(0, lang);
+  const [servicesRef] = useRevealOnScroll(0, lang);
+  const [portfolioRef] = useRevealOnScroll(0, lang);
+  const [teamRef] = useRevealOnScroll(0, lang);
+  const [aboutRef] = useRevealOnScroll(0, lang);
+  const [connectRef] = useRevealOnScroll(0, lang);
+  const [testimonialsRef] = useRevealOnScroll(0, lang);
+  const [contactRef] = useRevealOnScroll(0, lang);
 
   return (
     <div className="min-h-screen text-white font-sans relative">
@@ -349,7 +363,7 @@ function App() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {translations[lang].servicesList.map((service, idx) => {
-            const [cardRef, cardProps] = useRevealOnScroll(idx * 100);
+            const [cardRef, cardProps] = useRevealOnScroll(idx * 100, lang);
             return (
               <div ref={cardRef} {...cardProps} key={idx} className="fade-up-stagger bg-[#181E36] rounded-xl p-7 shadow flex flex-col items-start hover:drop-shadow-[0_0_12px_#FF7E3F] hover:translate-y-[-4px] transition-transform">
                 <span className="text-3xl mb-4">{service.icon}</span>
@@ -368,7 +382,7 @@ function App() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {translations[lang].portfolioList.map((item, idx) => {
-            const [cardRef, cardProps] = useRevealOnScroll(idx * 100);
+            const [cardRef, cardProps] = useRevealOnScroll(idx * 100, lang);
             return (
               <div ref={cardRef} {...cardProps} key={idx} className="fade-up-stagger bg-[#181E36] rounded-xl p-7 shadow flex flex-col items-start transition-all duration-300 hover:drop-shadow-[0_0_12px_#FF7E3F] hover:translate-y-[-4px] transition-transform">
                 <h3 className="text-xl font-bold mb-2">{item.title}</h3>
@@ -394,7 +408,7 @@ function App() {
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
           {translations[lang].teamStats.map((stat, idx) => {
-            const [statRef, statProps] = useRevealOnScroll(idx * 100);
+            const [statRef, statProps] = useRevealOnScroll(idx * 100, lang);
             return (
               <div ref={statRef} {...statProps} key={idx} className="fade-up-stagger bg-[#181E36] rounded-xl py-10 flex flex-col items-center shadow transition-all duration-300 hover:drop-shadow-[0_0_12px_#FF7E3F] hover:translate-y-[-4px] transition-transform">
                 <span className="text-3xl md:text-4xl font-extrabold text-[#FF7E3F] mb-2">{stat.value}</span>
@@ -406,7 +420,7 @@ function App() {
         <h3 className="text-2xl font-bold text-center mb-6 text-gray-200">{translations[lang].coreTech}</h3>
         <div className="flex flex-wrap justify-center gap-4">
           {['Python','JavaScript','React','Node.js','Flutter','Django','PostgreSQL','MongoDB','AWS','Docker','TensorFlow','GraphQL'].map((tech, index) => {
-            const [techRef, techProps] = useRevealOnScroll(700 + index * 100);
+            const [techRef, techProps] = useRevealOnScroll(700 + index * 100, lang);
             return (
               <span ref={techRef} {...techProps} key={index} className="fade-up-stagger bg-[#181E36] text-[#FF7E3F] px-6 py-2 rounded font-semibold text-base shadow border border-[#23263A] transition-all duration-300 hover:drop-shadow-[0_0_10px_#FF7E3F] hover:translate-y-[-4px] transition-transform">
                 {tech}
@@ -446,7 +460,7 @@ function App() {
         <p className="text-gray-300 text-lg mb-10">{translations[lang].connectText}</p>
         <div className="flex flex-col md:flex-row gap-8 justify-center mb-10">
           {[{icon: '🛫', title: translations[lang].telegram, desc: translations[lang].telegramDesc, handle: '@CodeForgeStars'}, {icon: '🗣️', title: translations[lang].vk, desc: translations[lang].vkDesc, handle: 'vk.com/codeforge'}].map((block, idx) => {
-            const [blockRef, blockProps] = useRevealOnScroll(300 + idx * 100);
+            const [blockRef, blockProps] = useRevealOnScroll(300 + idx * 100, lang);
             return (
               <div ref={blockRef} {...blockProps} key={idx} className="fade-up-stagger bg-[#181E36] rounded-xl p-8 flex-1 flex flex-col items-center shadow transition-all duration-300 hover:drop-shadow-[0_0_12px_#FF7E3F] hover:translate-y-[-4px] transition-transform">
                 <span className="text-5xl mb-4">{block.icon}</span>
@@ -459,7 +473,7 @@ function App() {
         </div>
         <div className="flex flex-col md:flex-row gap-6 justify-center">
           {[translations[lang].contactDirect, translations[lang].subscribe].map((btn, idx) => {
-            const [btnRef, btnProps] = useRevealOnScroll(500 + idx * 100);
+            const [btnRef, btnProps] = useRevealOnScroll(500 + idx * 100, lang);
             return (
               <a ref={btnRef} {...btnProps} key={idx} href="#contact" className="fade-up-stagger bg-[#FF7E3F] hover:bg-[#ff965f] text-white font-semibold px-8 py-3 rounded-lg text-lg shadow transition-all duration-300 mb-4 md:mb-0 hover:drop-shadow-[0_0_10px_#FF7E3F] hover:translate-y-[-4px] transition-transform">
                 {btn}

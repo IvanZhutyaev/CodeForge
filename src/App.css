@@ -108,8 +108,10 @@ body {
 .fade-up {
   opacity: 0;
   transform: translateY(40px);
-  transition: opacity 0.4s cubic-bezier(.4,0,.2,1), transform 0.4s cubic-bezier(.4,0,.2,1);
+  transition: opacity 0.6s cubic-bezier(.4,0,.2,1), transform 0.6s cubic-bezier(.4,0,.2,1);
+  will-change: opacity, transform;
 }
+
 .fade-up.visible {
   opacity: 1;
   transform: none;
@@ -118,9 +120,11 @@ body {
 .fade-up-stagger {
   opacity: 0;
   transform: translateY(40px);
-  transition: opacity 0.4s cubic-bezier(.4,0,.2,1), transform 0.4s cubic-bezier(.4,0,.2,1);
+  transition: opacity 0.6s cubic-bezier(.4,0,.2,1), transform 0.6s cubic-bezier(.4,0,.2,1);
   transition-delay: var(--stagger-delay, 0ms);
+  will-change: opacity, transform;
 }
+
 .fade-up-stagger.visible {
   opacity: 1;
   transform: none;
