@@ -1,8 +1,8 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: left;
 }
 
 .logo {
@@ -39,4 +39,68 @@
 
 .read-the-docs {
   color: #888;
+}
+
+:root {
+  --night-dark: #0c0c1e;
+  --deep-space: #1a1a2e;
+  --cosmic-blue: #16213e;
+  --star-white: #ffffff;
+  --star-gold: #ffd700;
+  --forge-orange: #ff6b35;
+  --forge-red: #dc2626;
+  --nebula-purple: #4c1d95;
+  --stardust: #a3a3a3;
+  --constellation-blue: #60a5fa;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--night-dark);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--night-dark);
+  color: var(--stardust);
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Удалены .stars, .twinkling, .clouds, .shooting-star и их анимации */
+
+.circuit-bg {
+  position: relative;
+  overflow: hidden;
+}
+
+.circuit-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(1px 1px at 20px 30px, var(--star-white) 50%, transparent 100%),
+    radial-gradient(1px 1px at 40px 80px, var(--star-gold) 50%, transparent 100%),
+    radial-gradient(1px 1px at 80px 120px, var(--star-white) 50%, transparent 100%),
+    radial-gradient(1px 1px at 120px 40px, var(--star-white) 50%, transparent 100%);
+  background-size: 150px 150px;
+  opacity: 0.3;
+  animation: twinkle 4s ease-in-out infinite alternate;
+}
+
+@keyframes twinkle {
+  0% { opacity: 0.2; }
+  100% { opacity: 0.4; }
 }

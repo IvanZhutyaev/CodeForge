@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 
 const navLinks = [
   'Home',
@@ -17,8 +19,20 @@ const navLinks = [
 function App() {
   const [count, setCount] = useState(0)
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    AOS.init({
+      duration: 400,
+      once: true,
+      mirror: false,
+      offset: 100,
+      disableMutationObserver: true
+    })
+  }, [])
+
   return (
-    <div className="bg-[#10162A] min-h-screen text-white font-sans">
+    <div className="min-h-screen text-white font-sans relative">
+      <div id="top"></div>
       {/* Header */}
       <header className="w-full fixed top-0 left-0 z-50 bg-[#0B1020] border-b border-[#23263A] drop-shadow-[0_2px_8px_rgba(255,126,63,0.25)]">
         <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
@@ -32,7 +46,7 @@ function App() {
             {navLinks.map(link => (
               <a
                 key={link}
-                href={`#${link.replace(/\s+/g, '').toLowerCase()}`}
+                href={link === 'Home' ? '#top' : `#${link.replace(/\s+/g, '').toLowerCase()}`}
                 className="hover:text-[#FF7E3F] transition-colors duration-200 drop-shadow-[0_0_6px_#FF7E3F]"
               >
                 {link}
@@ -40,17 +54,15 @@ function App() {
             ))}
           </nav>
           {/* Placeholder for animated constellation icon */}
-          <div className="w-10 h-10 border border-[#23263A] rounded-lg flex items-center justify-center">
-            <span className="text-[#FF7E3F] drop-shadow-[0_0_8px_#FF7E3F]">✦</span>
-          </div>
+          <a href="https://github.com/IvanZhutyaev" target="_blank" rel="noopener noreferrer" className="w-10 h-10 border border-[#23263A] rounded-lg flex items-center justify-center transition-all duration-300 hover:drop-shadow-[0_0_12px_#FF7E3F] hover:translate-y-[-4px] transition-transform">
+            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24" className="text-[#FF7E3F] drop-shadow-[0_0_8px_#FF7E3F]">
+              <path d="M12 2C6.477 2 2 6.484 2 12.021c0 4.428 2.865 8.184 6.839 9.504.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.004.07 1.532 1.032 1.532 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.339-2.221-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.987 1.029-2.686-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.025A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.295 2.748-1.025 2.748-1.025.546 1.378.202 2.397.1 2.65.64.699 1.028 1.593 1.028 2.686 0 3.847-2.337 4.695-4.566 4.944.359.309.678.919.678 1.852 0 1.336-.012 2.417-.012 2.747 0 .267.18.577.688.48C19.138 20.2 22 16.447 22 12.021 22 6.484 17.523 2 12 2z"/>
+            </svg>
+          </a>
         </div>
       </header>
       {/* Hero Section */}
-      <section className="flex flex-col items-center justify-center min-h-screen pt-32 pb-16 relative overflow-hidden">
-        {/* Stars background (placeholder) */}
-        <div className="absolute inset-0 z-0 pointer-events-none">
-          {/* Можно добавить кастомный canvas или SVG для анимации звёзд */}
-        </div>
+      <section className="flex flex-col items-center justify-center min-h-screen pt-32 pb-16 relative overflow-hidden" data-aos="fade-up">
         <div className="relative z-10 flex flex-col items-center">
           <h1 className="text-6xl md:text-7xl font-extrabold text-[#FFB088] drop-shadow-[0_0_16px_#FF7E3F] mb-6 text-center">CodeForge</h1>
           <p className="text-xl md:text-2xl text-gray-300 mb-10 text-center max-w-2xl drop-shadow-[0_0_8px_#FF7E3F]">
@@ -67,44 +79,44 @@ function App() {
         </div>
       </section>
       {/* Services Section */}
-      <section id="services" className="max-w-7xl mx-auto py-20 px-4">
-        <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-2 drop-shadow-[0_0_1px_#FF7E3F]/10">Our Services</h2>
-        <div className="flex justify-center mb-12">
+      <section id="services" className="max-w-7xl mx-auto py-20 px-4" data-aos="fade-up">
+        <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-2 drop-shadow-[0_0_1px_#FF7E3F]/10" data-aos="fade-up">Our Services</h2>
+        <div className="flex justify-center mb-12" data-aos="fade-up" data-aos-delay="100">
           <span className="block w-16 h-1 bg-[#FF7E3F] rounded"></span>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* 1 */}
-          <div className="bg-[#181E36] rounded-xl p-7 shadow transition-all duration-300 flex flex-col items-start hover:drop-shadow-[0_0_12px_#FF7E3F] hover:translate-y-[-4px] transition-transform">
+          <div className="bg-[#181E36] rounded-xl p-7 shadow transition-all duration-300 flex flex-col items-start hover:drop-shadow-[0_0_12px_#FF7E3F] hover:translate-y-[-4px] transition-transform" data-aos="fade-up" data-aos-delay="200">
             <span className="text-3xl mb-4">🤖</span>
             <h3 className="text-xl font-bold mb-2">Custom Chatbots & AI</h3>
             <p className="text-gray-300">Intelligent conversational AI solutions tailored to enhance customer engagement and automate support.</p>
           </div>
           {/* 2 */}
-          <div className="bg-[#181E36] rounded-xl p-7 shadow transition-all duration-300 flex flex-col items-start hover:drop-shadow-[0_0_12px_#FF7E3F] hover:translate-y-[-4px] transition-transform">
+          <div className="bg-[#181E36] rounded-xl p-7 shadow transition-all duration-300 flex flex-col items-start hover:drop-shadow-[0_0_12px_#FF7E3F] hover:translate-y-[-4px] transition-transform" data-aos="fade-up" data-aos-delay="300">
             <span className="text-3xl mb-4">🌐</span>
             <h3 className="text-xl font-bold mb-2">Web Development</h3>
             <p className="text-gray-300">Modern, responsive websites and web applications built with cutting-edge technologies and frameworks.</p>
           </div>
           {/* 3 */}
-          <div className="bg-[#181E36] rounded-xl p-7 shadow transition-all duration-300 flex flex-col items-start hover:drop-shadow-[0_0_12px_#FF7E3F] hover:translate-y-[-4px] transition-transform">
+          <div className="bg-[#181E36] rounded-xl p-7 shadow transition-all duration-300 flex flex-col items-start hover:drop-shadow-[0_0_12px_#FF7E3F] hover:translate-y-[-4px] transition-transform" data-aos="fade-up" data-aos-delay="400">
             <span className="text-3xl mb-4">📱</span>
             <h3 className="text-xl font-bold mb-2">Mobile Applications</h3>
             <p className="text-gray-300">Cross-platform mobile apps delivering seamless user experiences across iOS and Android devices.</p>
           </div>
           {/* 4 */}
-          <div className="bg-[#181E36] rounded-xl p-7 shadow transition-all duration-300 flex flex-col items-start hover:drop-shadow-[0_0_12px_#FF7E3F] hover:translate-y-[-4px] transition-transform">
+          <div className="bg-[#181E36] rounded-xl p-7 shadow transition-all duration-300 flex flex-col items-start hover:drop-shadow-[0_0_12px_#FF7E3F] hover:translate-y-[-4px] transition-transform" data-aos="fade-up" data-aos-delay="500">
             <span className="text-3xl mb-4">⚙️</span>
             <h3 className="text-xl font-bold mb-2">API Integrations</h3>
             <p className="text-gray-300">Seamless third-party integrations and custom API development for enhanced system connectivity and functionality.</p>
           </div>
           {/* 5 */}
-          <div className="bg-[#181E36] rounded-xl p-7 shadow transition-all duration-300 flex flex-col items-start hover:drop-shadow-[0_0_12px_#FF7E3F] hover:translate-y-[-4px] transition-transform">
+          <div className="bg-[#181E36] rounded-xl p-7 shadow transition-all duration-300 flex flex-col items-start hover:drop-shadow-[0_0_12px_#FF7E3F] hover:translate-y-[-4px] transition-transform" data-aos="fade-up" data-aos-delay="600">
             <span className="text-3xl mb-4">↩️</span>
             <h3 className="text-xl font-bold mb-2">Automation Tools</h3>
             <p className="text-gray-300">Custom automation solutions to streamline workflows, reduce manual tasks, and increase operational efficiency.</p>
           </div>
           {/* 6 */}
-          <div className="bg-[#181E36] rounded-xl p-7 shadow transition-all duration-300 flex flex-col items-start hover:drop-shadow-[0_0_12px_#FF7E3F] hover:translate-y-[-4px] transition-transform">
+          <div className="bg-[#181E36] rounded-xl p-7 shadow transition-all duration-300 flex flex-col items-start hover:drop-shadow-[0_0_12px_#FF7E3F] hover:translate-y-[-4px] transition-transform" data-aos="fade-up" data-aos-delay="700">
             <span className="text-3xl mb-4">🛡️</span>
             <h3 className="text-xl font-bold mb-2">Maintenance & Support</h3>
             <p className="text-gray-300">Ongoing technical support and maintenance ensuring your applications remain secure, updated, and performing optimally.</p>
@@ -112,14 +124,14 @@ function App() {
         </div>
       </section>
       {/* Portfolio Section */}
-      <section id="portfolio" className="max-w-7xl mx-auto py-20 px-4">
-        <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-2 drop-shadow-[0_0_1px_#FF7E3F]/10">Our Portfolio</h2>
-        <div className="flex justify-center mb-12">
+      <section id="portfolio" className="max-w-7xl mx-auto py-20 px-4" data-aos="fade-up">
+        <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-2 drop-shadow-[0_0_1px_#FF7E3F]/10" data-aos="fade-up">Our Portfolio</h2>
+        <div className="flex justify-center mb-12" data-aos="fade-up" data-aos-delay="100">
           <span className="block w-16 h-1 bg-[#FF7E3F] rounded"></span>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* 1 */}
-          <div className="bg-[#181E36] rounded-xl p-7 shadow flex flex-col items-start transition-all duration-300 hover:drop-shadow-[0_0_12px_#FF7E3F] hover:translate-y-[-4px] transition-transform">
+          <div className="bg-[#181E36] rounded-xl p-7 shadow flex flex-col items-start transition-all duration-300 hover:drop-shadow-[0_0_12px_#FF7E3F] hover:translate-y-[-4px] transition-transform" data-aos="fade-up" data-aos-delay="200">
             <h3 className="text-xl font-bold mb-2">E-Commerce AI Assistant</h3>
             <p className="text-gray-300 mb-4">Intelligent chatbot for online retail with product recommendations and order tracking capabilities.</p>
             <div className="flex flex-wrap gap-2 mb-4">
@@ -133,7 +145,7 @@ function App() {
             </a>
           </div>
           {/* 2 */}
-          <div className="bg-[#181E36] rounded-xl p-7 shadow flex flex-col items-start transition-all duration-300 hover:drop-shadow-[0_0_12px_#FF7E3F] hover:translate-y-[-4px] transition-transform">
+          <div className="bg-[#181E36] rounded-xl p-7 shadow flex flex-col items-start transition-all duration-300 hover:drop-shadow-[0_0_12px_#FF7E3F] hover:translate-y-[-4px] transition-transform" data-aos="fade-up" data-aos-delay="300">
             <h3 className="text-xl font-bold mb-2">FinTech Dashboard</h3>
             <p className="text-gray-300 mb-4">Real-time financial analytics platform with advanced data visualization and reporting features.</p>
             <div className="flex flex-wrap gap-2 mb-4">
@@ -147,7 +159,7 @@ function App() {
             </a>
           </div>
           {/* 3 */}
-          <div className="bg-[#181E36] rounded-xl p-7 shadow flex flex-col items-start transition-all duration-300 hover:drop-shadow-[0_0_12px_#FF7E3F] hover:translate-y-[-4px] transition-transform">
+          <div className="bg-[#181E36] rounded-xl p-7 shadow flex flex-col items-start transition-all duration-300 hover:drop-shadow-[0_0_12px_#FF7E3F] hover:translate-y-[-4px] transition-transform" data-aos="fade-up" data-aos-delay="400">
             <h3 className="text-xl font-bold mb-2">Fitness Tracking App</h3>
             <p className="text-gray-300 mb-4">Cross-platform mobile application for workout tracking, nutrition monitoring, and progress analytics.</p>
             <div className="flex flex-wrap gap-2 mb-4">
@@ -161,7 +173,7 @@ function App() {
             </a>
           </div>
           {/* 4 */}
-          <div className="bg-[#181E36] rounded-xl p-7 shadow flex flex-col items-start md:col-span-1 col-span-3 transition-all duration-300 hover:drop-shadow-[0_0_12px_#FF7E3F] hover:translate-y-[-4px] transition-transform">
+          <div className="bg-[#181E36] rounded-xl p-7 shadow flex flex-col items-start md:col-span-1 col-span-3 transition-all duration-300 hover:drop-shadow-[0_0_12px_#FF7E3F] hover:translate-y-[-4px] transition-transform" data-aos="fade-up" data-aos-delay="500">
             <h3 className="text-xl font-bold mb-2">Supply Chain Automation</h3>
             <p className="text-gray-300 mb-4">Automated inventory management system with predictive analytics and real-time supply chain optimization.</p>
             <div className="flex flex-wrap gap-2 mb-4">
@@ -177,47 +189,47 @@ function App() {
         </div>
       </section>
       {/* Team Section */}
-      <section id="team" className="max-w-7xl mx-auto py-20 px-4">
-        <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-2 drop-shadow-[0_0_1px_#FF7E3F]/10">Our Team</h2>
-        <div className="flex justify-center mb-12">
+      <section id="team" className="max-w-7xl mx-auto py-20 px-4" data-aos="fade-up">
+        <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-2 drop-shadow-[0_0_1px_#FF7E3F]/10" data-aos="fade-up">Our Team</h2>
+        <div className="flex justify-center mb-12" data-aos="fade-up" data-aos-delay="100">
           <span className="block w-16 h-1 bg-[#FF7E3F] rounded"></span>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
-          <div className="bg-[#181E36] rounded-xl py-10 flex flex-col items-center shadow transition-all duration-300 hover:drop-shadow-[0_0_12px_#FF7E3F] hover:translate-y-[-4px] transition-transform">
+          <div className="bg-[#181E36] rounded-xl py-10 flex flex-col items-center shadow transition-all duration-300 hover:drop-shadow-[0_0_12px_#FF7E3F] hover:translate-y-[-4px] transition-transform" data-aos="fade-up" data-aos-delay="200">
             <span className="text-3xl md:text-4xl font-extrabold text-[#FF7E3F] mb-2">50+</span>
             <span className="text-gray-300 text-center">Projects Delivered</span>
           </div>
-          <div className="bg-[#181E36] rounded-xl py-10 flex flex-col items-center shadow transition-all duration-300 hover:drop-shadow-[0_0_12px_#FF7E3F] hover:translate-y-[-4px] transition-transform">
+          <div className="bg-[#181E36] rounded-xl py-10 flex flex-col items-center shadow transition-all duration-300 hover:drop-shadow-[0_0_12px_#FF7E3F] hover:translate-y-[-4px] transition-transform" data-aos="fade-up" data-aos-delay="300">
             <span className="text-3xl md:text-4xl font-extrabold text-[#FF7E3F] mb-2">100%</span>
             <span className="text-gray-300 text-center">Client Satisfaction</span>
           </div>
-          <div className="bg-[#181E36] rounded-xl py-10 flex flex-col items-center shadow transition-all duration-300 hover:drop-shadow-[0_0_12px_#FF7E3F] hover:translate-y-[-4px] transition-transform">
+          <div className="bg-[#181E36] rounded-xl py-10 flex flex-col items-center shadow transition-all duration-300 hover:drop-shadow-[0_0_12px_#FF7E3F] hover:translate-y-[-4px] transition-transform" data-aos="fade-up" data-aos-delay="400">
             <span className="text-3xl md:text-4xl font-extrabold text-[#FF7E3F] mb-2">24/7</span>
             <span className="text-gray-300 text-center">Support Available</span>
           </div>
-          <div className="bg-[#181E36] rounded-xl py-10 flex flex-col items-center shadow transition-all duration-300 hover:drop-shadow-[0_0_12px_#FF7E3F] hover:translate-y-[-4px] transition-transform">
+          <div className="bg-[#181E36] rounded-xl py-10 flex flex-col items-center shadow transition-all duration-300 hover:drop-shadow-[0_0_12px_#FF7E3F] hover:translate-y-[-4px] transition-transform" data-aos="fade-up" data-aos-delay="500">
             <span className="text-3xl md:text-4xl font-extrabold text-[#FF7E3F] mb-2">5+</span>
             <span className="text-gray-300 text-center">Years Experience</span>
           </div>
         </div>
-        <h3 className="text-2xl font-bold text-center mb-6 text-gray-200">Core Technologies</h3>
+        <h3 className="text-2xl font-bold text-center mb-6 text-gray-200" data-aos="fade-up" data-aos-delay="600">Core Technologies</h3>
         <div className="flex flex-wrap justify-center gap-4">
-          {['Python','JavaScript','React','Node.js','Flutter','Django','PostgreSQL','MongoDB','AWS','Docker','TensorFlow','GraphQL'].map(tech => (
-            <span key={tech} className="bg-[#181E36] text-[#FF7E3F] px-6 py-2 rounded font-semibold text-base shadow border border-[#23263A] transition-all duration-300 hover:drop-shadow-[0_0_10px_#FF7E3F] hover:translate-y-[-4px] transition-transform">
+          {['Python','JavaScript','React','Node.js','Flutter','Django','PostgreSQL','MongoDB','AWS','Docker','TensorFlow','GraphQL'].map((tech, index) => (
+            <span key={tech} className="bg-[#181E36] text-[#FF7E3F] px-6 py-2 rounded font-semibold text-base shadow border border-[#23263A] transition-all duration-300 hover:drop-shadow-[0_0_10px_#FF7E3F] hover:translate-y-[-4px] transition-transform" data-aos="fade-up" data-aos-delay={700 + index * 100}>
               {tech}
             </span>
           ))}
         </div>
       </section>
       {/* About Section */}
-      <section id="aboutus" className="max-w-4xl mx-auto py-20 px-4 text-center">
-        <h2 className="text-4xl md:text-5xl font-extrabold mb-2 drop-shadow-[0_0_1px_#FF7E3F]/10">About Us</h2>
-        <div className="flex justify-center mb-8">
+      <section id="aboutus" className="max-w-4xl mx-auto py-20 px-4 text-center" data-aos="fade-up">
+        <h2 className="text-4xl md:text-5xl font-extrabold mb-2 drop-shadow-[0_0_1px_#FF7E3F]/10" data-aos="fade-up">About Us</h2>
+        <div className="flex justify-center mb-8" data-aos="fade-up" data-aos-delay="100">
           <span className="block w-16 h-1 bg-[#FF7E3F] rounded"></span>
         </div>
-        <p className="text-gray-300 text-lg mb-10">We are CodeForge, a constellation of talented developers united like the stars of the blacksmith.<br/>Just as ancient smiths forged powerful tools under the night sky, we craft digital solutions guided by the creativity and precision of our cosmic inspiration. Our team draws strength from the constellation of the blacksmith, channeling its energy into every project we deliver.</p>
+        <p className="text-gray-300 text-lg mb-10" data-aos="fade-up" data-aos-delay="200">We are CodeForge, a constellation of talented developers united like the stars of the blacksmith.<br/>Just as ancient smiths forged powerful tools under the night sky, we craft digital solutions guided by the creativity and precision of our cosmic inspiration. Our team draws strength from the constellation of the blacksmith, channeling its energy into every project we deliver.</p>
         {/* SVG-плейсхолдер созвездия */}
-        <div className="flex justify-center mb-10">
+        <div className="flex justify-center mb-10" data-aos="fade-up" data-aos-delay="300">
           <svg width="220" height="120" viewBox="0 0 220 120" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="30" cy="60" r="5" fill="#FF7E3F" />
             <circle cx="60" cy="30" r="4" fill="#FFD166" />
@@ -230,25 +242,25 @@ function App() {
             <polyline points="30,60 60,30 110,40 170,60 200,100 140,100 110,40" stroke="#FF7E3F" strokeWidth="2" fill="none" />
           </svg>
         </div>
-        <p className="text-gray-300 text-lg">Like the blacksmith who shapes metal with fire and hammer, we transform concepts into functional digital experiences through code and creativity. Our connection to this celestial pattern reminds us that true craftsmanship requires both technical precision and artistic vision.</p>
+        <p className="text-gray-300 text-lg" data-aos="fade-up" data-aos-delay="400">Like the blacksmith who shapes metal with fire and hammer, we transform concepts into functional digital experiences through code and creativity. Our connection to this celestial pattern reminds us that true craftsmanship requires both technical precision and artistic vision.</p>
       </section>
       {/* Connect Section */}
-      <section id="connect" className="max-w-5xl mx-auto py-20 px-4 text-center">
-        <h2 className="text-4xl md:text-5xl font-extrabold mb-2 drop-shadow-[0_0_1px_#FF7E3F]/10">Connect With Us</h2>
-        <div className="flex justify-center mb-8">
+      <section id="connect" className="max-w-5xl mx-auto py-20 px-4 text-center" data-aos="fade-up">
+        <h2 className="text-4xl md:text-5xl font-extrabold mb-2 drop-shadow-[0_0_1px_#FF7E3F]/10" data-aos="fade-up">Connect With Us</h2>
+        <div className="flex justify-center mb-8" data-aos="fade-up" data-aos-delay="100">
           <span className="block w-16 h-1 bg-[#FF7E3F] rounded"></span>
         </div>
-        <p className="text-gray-300 text-lg mb-10">Join our community of stars in the digital cosmos. Follow us on social media for the latest updates, tips, and insights.</p>
+        <p className="text-gray-300 text-lg mb-10" data-aos="fade-up" data-aos-delay="200">Join our community of stars in the digital cosmos. Follow us on social media for the latest updates, tips, and insights.</p>
         <div className="flex flex-col md:flex-row gap-8 justify-center mb-10">
           {/* Telegram */}
-          <div className="bg-[#181E36] rounded-xl p-8 flex-1 flex flex-col items-center shadow transition-all duration-300 hover:drop-shadow-[0_0_12px_#FF7E3F] hover:translate-y-[-4px] transition-transform">
+          <div className="bg-[#181E36] rounded-xl p-8 flex-1 flex flex-col items-center shadow transition-all duration-300 hover:drop-shadow-[0_0_12px_#FF7E3F] hover:translate-y-[-4px] transition-transform" data-aos="fade-up" data-aos-delay="300">
             <span className="text-5xl mb-4">&#x1F6EB;</span>
             <h3 className="text-xl font-bold mb-2">Telegram Channel</h3>
             <p className="text-gray-300 mb-2">Get instant updates and join discussions on our latest projects and tech innovations.</p>
             <span className="text-[#FF7E3F] font-mono font-semibold">@CodeForgeStars</span>
           </div>
           {/* VK */}
-          <div className="bg-[#181E36] rounded-xl p-8 flex-1 flex flex-col items-center shadow transition-all duration-300 hover:drop-shadow-[0_0_12px_#FF7E3F] hover:translate-y-[-4px] transition-transform">
+          <div className="bg-[#181E36] rounded-xl p-8 flex-1 flex flex-col items-center shadow transition-all duration-300 hover:drop-shadow-[0_0_12px_#FF7E3F] hover:translate-y-[-4px] transition-transform" data-aos="fade-up" data-aos-delay="400">
             <span className="text-5xl mb-4">&#x1F5E3;</span>
             <h3 className="text-xl font-bold mb-2">VKontakte Community</h3>
             <p className="text-gray-300 mb-2">Connect with our team and other developers in our growing VK community.</p>
@@ -256,31 +268,31 @@ function App() {
           </div>
         </div>
         <div className="flex flex-col md:flex-row gap-6 justify-center">
-          <a href="#contact" className="bg-[#FF7E3F] hover:bg-[#ff965f] text-white font-semibold px-8 py-3 rounded-lg text-lg shadow transition-all duration-300 mb-4 md:mb-0 hover:drop-shadow-[0_0_10px_#FF7E3F] hover:translate-y-[-4px] transition-transform">Contact Us Directly</a>
-          <a href="#" className="border border-[#FF7E3F] text-[#FF7E3F] hover:bg-[#FF7E3F] hover:text-white font-semibold px-8 py-3 rounded-lg text-lg transition-all duration-300 hover:drop-shadow-[0_0_10px_#FF7E3F] hover:translate-y-[-4px] transition-transform">Subscribe to Updates</a>
+          <a href="#contact" className="bg-[#FF7E3F] hover:bg-[#ff965f] text-white font-semibold px-8 py-3 rounded-lg text-lg shadow transition-all duration-300 mb-4 md:mb-0 hover:drop-shadow-[0_0_10px_#FF7E3F] hover:translate-y-[-4px] transition-transform" data-aos="fade-up" data-aos-delay="500">Contact Us Directly</a>
+          <a href="#" className="border border-[#FF7E3F] text-[#FF7E3F] hover:bg-[#FF7E3F] hover:text-white font-semibold px-8 py-3 rounded-lg text-lg transition-all duration-300 hover:drop-shadow-[0_0_10px_#FF7E3F] hover:translate-y-[-4px] transition-transform" data-aos="fade-up" data-aos-delay="600">Subscribe to Updates</a>
         </div>
       </section>
       {/* Testimonials Section */}
-      <section id="testimonials" className="max-w-3xl mx-auto py-20 px-4 text-center">
-        <h2 className="text-4xl md:text-5xl font-extrabold mb-2 drop-shadow-[0_0_1px_#FF7E3F]/10">What Our Clients Say</h2>
-        <div className="flex justify-center mb-8">
+      <section id="testimonials" className="max-w-3xl mx-auto py-20 px-4 text-center" data-aos="fade-up">
+        <h2 className="text-4xl md:text-5xl font-extrabold mb-2 drop-shadow-[0_0_1px_#FF7E3F]/10" data-aos="fade-up">What Our Clients Say</h2>
+        <div className="flex justify-center mb-8" data-aos="fade-up" data-aos-delay="100">
           <span className="block w-16 h-1 bg-[#FF7E3F] rounded"></span>
         </div>
-        <blockquote className="text-xl md:text-2xl italic text-gray-200 mb-8">"CodeForge delivered an exceptional AI chatbot that increased our customer engagement by 300%. Their technical expertise and attention to detail is unmatched."</blockquote>
-        <div>
+        <blockquote className="text-xl md:text-2xl italic text-gray-200 mb-8" data-aos="fade-up" data-aos-delay="200">"CodeForge delivered an exceptional AI chatbot that increased our customer engagement by 300%. Their technical expertise and attention to detail is unmatched."</blockquote>
+        <div data-aos="fade-up" data-aos-delay="300">
           <span className="text-[#FF7E3F] font-semibold">Sarah Johnson</span>
           <div className="text-gray-400 text-base">TechFlow Solutions</div>
         </div>
       </section>
       {/* Contact Section */}
-      <section id="contact" className="max-w-6xl mx-auto py-20 px-4">
-        <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-2 drop-shadow-[0_0_1px_#FF7E3F]/10">Get In Touch</h2>
-        <div className="flex justify-center mb-8">
+      <section id="contact" className="max-w-6xl mx-auto py-20 px-4" data-aos="fade-up">
+        <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-2 drop-shadow-[0_0_1px_#FF7E3F]/10" data-aos="fade-up">Get In Touch</h2>
+        <div className="flex justify-center mb-8" data-aos="fade-up" data-aos-delay="100">
           <span className="block w-16 h-1 bg-[#FF7E3F] rounded"></span>
         </div>
         <div className="flex flex-col md:flex-row gap-12">
           {/* Форма */}
-          <form className="bg-[#181E36] rounded-xl p-8 flex-1 shadow flex flex-col gap-6 transition-all duration-300 hover:drop-shadow-[0_0_12px_#FF7E3F] hover:translate-y-[-4px] transition-transform">
+          <form className="bg-[#181E36] rounded-xl p-8 flex-1 shadow flex flex-col gap-6 transition-all duration-300 hover:drop-shadow-[0_0_12px_#FF7E3F] hover:translate-y-[-4px] transition-transform" data-aos="fade-up" data-aos-delay="200">
             <input type="text" placeholder="Full Name" className="bg-transparent border border-[#23263A] rounded px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-[#FF7E3F]" />
             <input type="email" placeholder="Email Address" className="bg-transparent border border-[#23263A] rounded px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-[#FF7E3F]" />
             <input type="text" placeholder="Project Type\nWeb App, Mobile App, Chatbot, etc." className="bg-transparent border border-[#23263A] rounded px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-[#FF7E3F]" />
@@ -288,7 +300,7 @@ function App() {
             <button type="submit" className="bg-[#FF7E3F] hover:bg-[#ff965f] text-white font-semibold px-8 py-3 rounded-lg text-lg shadow transition-all duration-300 mt-2 transition hover:drop-shadow-[0_0_10px_#FF7E3F] hover:translate-y-[-4px] transition-transform">Send Message</button>
           </form>
           {/* Контакты */}
-          <div className="flex-1 flex flex-col gap-6 justify-center items-center md:items-start">
+          <div className="flex-1 flex flex-col gap-6 justify-center items-center md:items-start" data-aos="fade-up" data-aos-delay="300">
             <div className="text-left">
               <div className="mb-4">
                 <span className="font-bold text-white">Location</span><br/>
