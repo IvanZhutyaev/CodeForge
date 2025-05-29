@@ -284,6 +284,22 @@ function App() {
   const [lang, setLang] = useState('ru')
   const t = translations[lang]
 
+  // Функция для плавной прокрутки к якорю
+  const scrollToAnchor = (e, anchor) => {
+    e.preventDefault();
+    const element = document.getElementById(anchor);
+    if (element) {
+      const headerOffset = 80; // Высота шапки
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   // Эффект для прокрутки вверх при загрузке и смене языка
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -315,6 +331,7 @@ function App() {
               <a
                 key={anchor}
                 href={`#${anchor}`}
+                onClick={(e) => scrollToAnchor(e, anchor)}
                 className="hover:text-[#FF7E3F] transition-colors duration-200 drop-shadow-[0_0_6px_#FF7E3F]"
               >
                 {label}
