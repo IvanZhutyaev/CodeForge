@@ -363,10 +363,18 @@ function App() {
             {translations[lang].heroSubtitle}
           </p>
           <div className="flex gap-6">
-            <a href="#portfolio" className="bg-[#FF7E3F] hover:bg-[#ff965f] text-white font-semibold px-8 py-3 rounded-lg text-lg shadow transition-all duration-300 drop-shadow-[0_0_8px_#FF7E3F] hover:translate-y-[-4px] transition-transform">
+            <a 
+              href="#portfolio" 
+              onClick={(e) => scrollToAnchor(e, 'portfolio')}
+              className="bg-[#FF7E3F] hover:bg-[#ff965f] text-white font-semibold px-8 py-3 rounded-lg text-lg shadow transition-all duration-300 drop-shadow-[0_0_8px_#FF7E3F] hover:translate-y-[-4px] transition-transform"
+            >
               {translations[lang].viewPortfolio}
             </a>
-            <a href="#contact" className="border border-[#FF7E3F] text-[#FF7E3F] hover:bg-[#FF7E3F] hover:text-white font-semibold px-8 py-3 rounded-lg text-lg transition-all duration-300 drop-shadow-[0_0_8px_#FF7E3F] hover:translate-y-[-4px] transition-transform">
+            <a 
+              href="#contact" 
+              onClick={(e) => scrollToAnchor(e, 'contact')}
+              className="border border-[#FF7E3F] text-[#FF7E3F] hover:bg-[#FF7E3F] hover:text-white font-semibold px-8 py-3 rounded-lg text-lg transition-all duration-300 drop-shadow-[0_0_8px_#FF7E3F] hover:translate-y-[-4px] transition-transform"
+            >
               {translations[lang].contactUs}
             </a>
           </div>
@@ -492,7 +500,14 @@ function App() {
           {[translations[lang].contactDirect, translations[lang].subscribe].map((btn, idx) => {
             const [btnRef, btnProps] = useRevealOnScroll(500 + idx * 100, lang);
             return (
-              <a ref={btnRef} {...btnProps} key={idx} href="#contact" className="fade-up-stagger bg-[#FF7E3F] hover:bg-[#ff965f] text-white font-semibold px-8 py-3 rounded-lg text-lg shadow transition-all duration-300 mb-4 md:mb-0 hover:drop-shadow-[0_0_10px_#FF7E3F] hover:translate-y-[-4px] transition-transform">
+              <a 
+                ref={btnRef} 
+                {...btnProps} 
+                key={idx} 
+                href="#contact" 
+                onClick={(e) => scrollToAnchor(e, 'contact')}
+                className="fade-up-stagger bg-[#FF7E3F] hover:bg-[#ff965f] text-white font-semibold px-8 py-3 rounded-lg text-lg shadow transition-all duration-300 mb-4 md:mb-0 hover:drop-shadow-[0_0_10px_#FF7E3F] hover:translate-y-[-4px] transition-transform"
+              >
                 {btn}
               </a>
             );
